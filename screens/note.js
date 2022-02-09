@@ -32,6 +32,7 @@ import Btc from "../assets/icons/Btc.svg";
 import Image1 from "../assets/icons/Image1.svg";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import Editor from "./editor";
+import { SelectableText } from "@astrocoders/react-native-selectable-text";
 
 const { width, height } = Dimensions.get("window");
 
@@ -172,8 +173,11 @@ const Note = ({ navigation }) => {
                 fontFamily: "inter-regular",
                 fontSize: 13,
                 lineHeight: 19.5,
+
                 // lineHeight: "150%",
               }}
+              selectable={true}
+              selectionColor="#2AA893"
             >
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.{" "}
@@ -229,7 +233,7 @@ const Note = ({ navigation }) => {
             </Text>
           </View>
           <View style={styles.view6Content}>
-            <Text
+            {/* <Text
               style={{
                 fontFamily: "inter-regular",
                 fontSize: 13,
@@ -240,7 +244,19 @@ const Note = ({ navigation }) => {
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint.Velit officia consequat consequat duis enim velit
               mollit. Exercitation veniam consequat sunt nostrud amet.
-            </Text>
+            </Text> */}
+            <SelectableText
+              menuItems={["highlighting text", "add marking"]}
+              onSelection={({
+                eventType,
+                content,
+                selectionStart,
+                selectionEnd,
+              }) => {}}
+              value="Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+              amet sint.Velit officia consequat consequat duis enim velit
+              mollit. Exercitation veniam consequat sunt nostrud amet."
+            />
           </View>
           <View style={styles.view7Content}>
             <TouchableOpacity onPress={() => setModal(true)}>
